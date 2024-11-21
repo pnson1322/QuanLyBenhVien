@@ -10,22 +10,22 @@
         Title="MainWindow" Height="720" Width="1280"
         WindowStyle="None"
         AllowsTransparency="True"
-        Background="Transparent"
-        >
-    <Window.DataContext>
-        <viewModel:MainViewModel />
-    </Window.DataContext>
+        Background="Transparent">
 
-    <Window.Resources>
-        <!-- Style cho Expander - ẩn mũi tên -->
-        <Style x:Key="CustomExpander" TargetType="Expander">
-            <Setter Property="Width" Value="260" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Expander">
-                        <DockPanel>
-                            <Button x:Name="HeaderButton"
+<Window.DataContext>
+    <viewModel:MainViewModel />
+</Window.DataContext>
+
+<Window.Resources>
+    <!-- Style cho Expander - ẩn mũi tên -->
+    <Style x:Key="CustomExpander" TargetType="Expander">
+        <Setter Property="Width" Value="260" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Expander">
+                    <DockPanel>
+                        <Button x:Name="HeaderButton"
                                     DockPanel.Dock="Top"
                                     Height="40"
                                     Margin="-5,0,0,5"
@@ -35,70 +35,70 @@
                                     FontSize="16"
                                     BorderBrush="Transparent"
                                     Click="HeaderButton_Click">
-                                <ContentPresenter ContentSource="Header" 
+                            <ContentPresenter ContentSource="Header" 
                                                   HorizontalAlignment="Left" 
                                                   Margin="20,0,0,0"/>
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}"
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
                                                 BorderThickness="4,0,0,0"
-                                                CornerRadius="0,20,20,0">   
-                                            <ContentPresenter VerticalAlignment="Center"/>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#1E8CFB"/>
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                            <ContentPresenter x:Name="ExpanderContent"
+                                                CornerRadius="0,20,20,0">
+                                        <ContentPresenter VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#1E8CFB"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <ContentPresenter x:Name="ExpanderContent"
                                             DockPanel.Dock="Bottom"
                                             Content="{TemplateBinding Content}"
                                             Visibility="Collapsed"/>
-                        </DockPanel>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsExpanded" Value="True">
-                                <Setter TargetName="ExpanderContent" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+                    </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="True">
+                            <Setter TargetName="ExpanderContent" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
-        <!-- Style cho Button trong submenu -->
-        <Style x:Key="SubMenuButton" TargetType="Button">
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Width" Value="200" />
-            <Setter Property="Margin" Value="0,0,0,5" />
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="Background" Value="#6CABEA"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
+    <!-- Style cho Button trong submenu -->
+    <Style x:Key="SubMenuButton" TargetType="Button">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Margin" Value="0,0,0,5" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Background" Value="#6CABEA"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
                                 CornerRadius="0,20,20,0">
-                            <ContentPresenter HorizontalAlignment="Left" 
+                        <ContentPresenter HorizontalAlignment="Left" 
                                             VerticalAlignment="Center"
                                             Margin="30,0,0,0"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#1E8CFB"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-    
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#1E8CFB"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</Window.Resources>
+
     <Border CornerRadius="10"
             BorderThickness="1">
         <Border.BorderBrush>
@@ -220,4 +220,4 @@
             </Border>
         </Grid>
     </Border>
-</Window>
+    </Window>
