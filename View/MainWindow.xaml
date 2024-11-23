@@ -130,7 +130,7 @@
                                TextAlignment="Center"
                                Margin="0,5,0,30"/>
 
-                    <Grid>
+                    <Grid Height="Auto">
                         <ScrollViewer VerticalScrollBarVisibility="Hidden"
                                       HorizontalScrollBarVisibility="Disabled"
                                       Height="465">
